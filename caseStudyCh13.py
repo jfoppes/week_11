@@ -11,9 +11,34 @@ import sys
 
 
 leFile = open("yellow_wallpaper.txt", "r") #open yellow wallpaper
-leFile = leFile.readlines() #read each line and append to list 
-leString = leFile[26:] # remove the header and start at title line
-print(leString)
+leFile = leFile.read().lower() #read each line and append to list 
+leFile = leFile.translate(str.maketrans('','',string.punctuation))
+
+leString = ""
+x = 0
+for line in leFile:
+    x += 1
+    if x <730:
+        pass
+    else:
+        leString = leString + line
+
+
+words=(leString.split())
+#print("there are",len(words),"words in Yellow wallpaper")
+
+
+freq = {}
+
+for i in words:
+    if i in freq:
+        freq[i] += 1
+    else:
+        freq[i] = 1
+        
+        
+print(freq)
+
 
     
 
