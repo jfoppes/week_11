@@ -19,4 +19,3 @@ words = []
 words.append(leString.split())
 print(words)
     
-
