@@ -7,7 +7,7 @@
 # For each section of the project i will create a seperate branch with the name of the section  
 
 import string
-import sys
+import operator
 
 
 leFile = open("yellow_wallpaper.txt", "r") #open yellow wallpaper
@@ -36,9 +36,16 @@ for i in words:
     else:
         freq[i] = 1
         
-        
-print(freq)
+freq = dict(sorted(freq.items(), key=lambda item: item[1]).__reversed__())
 
+common20 = []
+count = 0
+for i in freq.items():
+    count += 1
+    if count <21:
+        common20.append(i)
+    else: break
+print("the 20 most common words are as follows;\n",common20)
 
     
 
