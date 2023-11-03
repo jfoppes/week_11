@@ -5,3 +5,18 @@
 
 
 # For each section of the project i will create a seperate branch with the name of the section  
+
+import string
+import sys
+
+leString = open("demoText.txt", "r")
+leString = leString.read().lower()
+
+leString = leString.translate(str.maketrans('','',string.punctuation))
+print(leString)
+
+words = []
+words.append(leString.split())
+print(words)
+    
+
