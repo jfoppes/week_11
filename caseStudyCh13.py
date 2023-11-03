@@ -9,14 +9,11 @@
 import string
 import sys
 
-leString = open("demoText.txt", "r")
-leString = leString.read().lower()
 
-leString = leString.translate(str.maketrans('','',string.punctuation))
+leFile = open("yellow_wallpaper.txt", "r") #open yellow wallpaper
+leFile = leFile.readlines() #read each line and append to list 
+leString = leFile[26:] # remove the header and start at title line
 print(leString)
 
-words = []
-words.append(leString.split())
-print(words)
     
 
