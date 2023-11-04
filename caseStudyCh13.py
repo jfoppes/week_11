@@ -16,7 +16,7 @@ leFile = leFile.translate(str.maketrans('','',string.punctuation))
 
 leString = ""
 x = 0
-for line in leFile:
+for line in leFile: # for wach line i nthe file starting at character 730 add it to the string
     x += 1
     if x <730:
         pass
@@ -24,28 +24,13 @@ for line in leFile:
         leString = leString + line
 
 
-words=(leString.split())
+words=(leString.split()) # create list out of all words
 #print("there are",len(words),"words in Yellow wallpaper")
 
+goodWordList = ["the","with","but","shal","will","love","that","i"]
+didntMakeCut = sorted(list(set(words) - set(goodWordList)))# subtract wors in the good lsit from all words and strop in new list of not good words 
 
-freq = {}
-
-for i in words:
-    if i in freq:
-        freq[i] += 1
-    else:
-        freq[i] = 1
-        
-freq = dict(sorted(freq.items(), key=lambda item: item[1]).__reversed__())
-
-common20 = []
-count = 0
-for i in freq.items():
-    count += 1
-    if count <21:
-        common20.append(i)
-    else: break
-print("the 20 most common words are as follows;\n",common20)
+print("these words are no inthe list ;\n",didntMakeCut)
 
     
 
