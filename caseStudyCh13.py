@@ -10,12 +10,12 @@ import string
 import sys
 
 leString = open("demoText.txt", "r")
-leString = leString.read().lower()
+leString = leString.read().lower() # read dfiel and make lowercase
 
-leString = leString.translate(str.maketrans('','',string.punctuation))
+leString = leString.translate(str.maketrans('','',string.punctuation))# remove punctuation 
 print(leString)
 
 words = []
-words.append(leString.split())
+words.append(leString.split()) # add words to emply lsit splitting at the space 
 print(words)
     
