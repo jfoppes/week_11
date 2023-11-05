@@ -7,7 +7,8 @@
 # For each section of the project i will create a seperate branch with the name of the section  
 
 import string
-import operator
+import random
+from bisect import bisect
 
 
 leFile = open("yellow_wallpaper.txt", "r") #open yellow wallpaper
@@ -30,7 +31,38 @@ words=(leString.split()) # create list out of all words
 goodWordList = ["the","with","but","shal","will","love","that","i"]
 didntMakeCut = sorted(list(set(words) - set(goodWordList)))# subtract wors in the good lsit from all words and strop in new list of not good words 
 
-print("these words are no inthe list ;\n",didntMakeCut)
+#print("these words are no inthe list ;\n",didntMakeCut)
 
     
 
+#################
+# 13.7
+
+freq = {}
+
+for i in words: # craete frequency count of words in string
+    if i in freq:
+        freq[i] += 1
+    else:
+        freq[i] = 1
+        
+freq = dict(sorted(freq.items(), key=lambda item: item[1]).__reversed__())
+
+thewords = []
+thecounts = []
+cumulative = 0
+for word,count in freq.items(): # for reach word in the freqency dict, add the count value to the cummutaive count , and add the word to words mlists, andn the count to the counts list 
+    cumulative += count
+    thewords.append(word)
+    thecounts.append(count)
+
+randx = random.randint(0,cumulative-1)
+index = bisect(thecounts,randx)
+    
+    
+    
+
+
+
+######################
+# 13.8
